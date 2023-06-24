@@ -12,7 +12,7 @@ function sleep(ms) {
 
 async function getRanking() {
   const response = await fetch('https://mariokart.vercel.app/db.json');
-  let ranking = await response.json();
+  let { ranking } = await response.json();
 
   ranking = ranking.sort((a, b) => b.score - a.score);
   ranking[0].index = 1;
