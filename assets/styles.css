@@ -1,0 +1,331 @@
+:root {
+  --blue: #2563eb;
+}
+
+h1,
+h2,
+h3,
+span {
+  --border-color: var(--blue);
+  --border-4px: -4px -4px 0 var(--border-color), -4px -3px 0 var(--border-color),
+    -4px -2px 0 var(--border-color), -4px -1px 0 var(--border-color), -4px 0px 0 var(--border-color),
+    -4px 1px 0 var(--border-color), -4px 2px 0 var(--border-color), -4px 3px 0 var(--border-color),
+    -4px 4px 0 var(--border-color), -3px -4px 0 var(--border-color), -3px -3px 0 var(--border-color),
+    -3px -2px 0 var(--border-color), -3px -1px 0 var(--border-color), -3px 0px 0 var(--border-color),
+    -3px 1px 0 var(--border-color), -3px 2px 0 var(--border-color), -3px 3px 0 var(--border-color),
+    -3px 4px 0 var(--border-color), -2px -4px 0 var(--border-color), -2px -3px 0 var(--border-color),
+    -2px -2px 0 var(--border-color), -2px -1px 0 var(--border-color), -2px 0px 0 var(--border-color),
+    -2px 1px 0 var(--border-color), -2px 2px 0 var(--border-color), -2px 3px 0 var(--border-color),
+    -2px 4px 0 var(--border-color), -1px -4px 0 var(--border-color), -1px -3px 0 var(--border-color),
+    -1px -2px 0 var(--border-color), -1px -1px 0 var(--border-color), -1px 0px 0 var(--border-color),
+    -1px 1px 0 var(--border-color), -1px 2px 0 var(--border-color), -1px 3px 0 var(--border-color),
+    -1px 4px 0 var(--border-color), 0px -4px 0 var(--border-color), 0px -3px 0 var(--border-color),
+    0px -2px 0 var(--border-color), 0px -1px 0 var(--border-color), 0px 0px 0 var(--border-color),
+    0px 1px 0 var(--border-color), 0px 2px 0 var(--border-color), 0px 3px 0 var(--border-color),
+    0px 4px 0 var(--border-color), 1px -4px 0 var(--border-color), 1px -3px 0 var(--border-color),
+    1px -2px 0 var(--border-color), 1px -1px 0 var(--border-color), 1px 0px 0 var(--border-color),
+    1px 1px 0 var(--border-color), 1px 2px 0 var(--border-color), 1px 3px 0 var(--border-color),
+    1px 4px 0 var(--border-color), 2px -4px 0 var(--border-color), 2px -3px 0 var(--border-color),
+    2px -2px 0 var(--border-color), 2px -1px 0 var(--border-color), 2px 0px 0 var(--border-color),
+    2px 1px 0 var(--border-color), 2px 2px 0 var(--border-color), 2px 3px 0 var(--border-color),
+    2px 4px 0 var(--border-color), 3px -4px 0 var(--border-color), 3px -3px 0 var(--border-color),
+    3px -2px 0 var(--border-color), 3px -1px 0 var(--border-color), 3px 0px 0 var(--border-color),
+    3px 1px 0 var(--border-color), 3px 2px 0 var(--border-color), 3px 3px 0 var(--border-color),
+    3px 4px 0 var(--border-color), 4px -4px 0 var(--border-color), 4px -3px 0 var(--border-color),
+    4px -2px 0 var(--border-color), 4px -1px 0 var(--border-color), 4px 0px 0 var(--border-color),
+    4px 1px 0 var(--border-color), 4px 2px 0 var(--border-color), 4px 3px 0 var(--border-color),
+    4px 4px 0 var(--border-color);
+
+  --border-3px: -3px -3px 0 var(--border-color), -3px -2px 0 var(--border-color),
+    -3px -1px 0 var(--border-color), -3px 0px 0 var(--border-color), -3px 1px 0 var(--border-color),
+    -3px 2px 0 var(--border-color), -3px 3px 0 var(--border-color), -2px -3px 0 var(--border-color),
+    -2px -2px 0 var(--border-color), -2px -1px 0 var(--border-color), -2px 0px 0 var(--border-color),
+    -2px 1px 0 var(--border-color), -2px 2px 0 var(--border-color), -2px 3px 0 var(--border-color),
+    -1px -3px 0 var(--border-color), -1px -2px 0 var(--border-color),
+    -1px -1px 0 var(--border-color), -1px 0px 0 var(--border-color), -1px 1px 0 var(--border-color),
+    -1px 2px 0 var(--border-color), -1px 3px 0 var(--border-color), 0px -3px 0 var(--border-color),
+    0px -2px 0 var(--border-color), 0px -1px 0 var(--border-color), 0px 0px 0 var(--border-color),
+    0px 1px 0 var(--border-color), 0px 2px 0 var(--border-color), 0px 3px 0 var(--border-color),
+    1px -3px 0 var(--border-color), 1px -2px 0 var(--border-color), 1px -1px 0 var(--border-color),
+    1px 0px 0 var(--border-color), 1px 1px 0 var(--border-color), 1px 2px 0 var(--border-color),
+    1px 3px 0 var(--border-color), 2px -3px 0 var(--border-color), 2px -2px 0 var(--border-color),
+    2px -1px 0 var(--border-color), 2px 0px 0 var(--border-color), 2px 1px 0 var(--border-color),
+    2px 2px 0 var(--border-color), 2px 3px 0 var(--border-color), 3px -3px 0 var(--border-color),
+    3px -2px 0 var(--border-color), 3px -1px 0 var(--border-color), 3px 0px 0 var(--border-color),
+    3px 1px 0 var(--border-color), 3px 2px 0 var(--border-color), 3px 3px 0 var(--border-color);
+
+  --border-2px: -2px -2px 0 var(--border-color), -2px -1px 0 var(--border-color),
+    -2px 0px 0 var(--border-color), -2px 1px 0 var(--border-color), -2px 2px 0 var(--border-color),
+    -1px -2px 0 var(--border-color), -1px -1px 0 var(--border-color), -1px 0px 0 var(--border-color),
+    -1px 1px 0 var(--border-color), -1px 2px 0 var(--border-color), 0px -2px 0 var(--border-color),
+    0px -1px 0 var(--border-color), 0px 0px 0 var(--border-color), 0px 1px 0 var(--border-color),
+    0px 2px 0 var(--border-color), 1px -2px 0 var(--border-color), 1px -1px 0 var(--border-color),
+    1px 0px 0 var(--border-color), 1px 1px 0 var(--border-color), 1px 2px 0 var(--border-color),
+    2px -2px 0 var(--border-color), 2px -1px 0 var(--border-color), 2px 0px 0 var(--border-color),
+    2px 1px 0 var(--border-color), 2px 2px 0 var(--border-color);
+  text-shadow: var(--border-3px);
+}
+
+body {
+  background-color: #68699f;
+  color: white;
+  font-family: 'Press Start 2P', sans-serif;
+  line-height: 1;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding: 0 2rem;
+  paint-order: stroke fill;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100vw;
+}
+
+.container {
+  max-width: 864px;
+  margin: auto;
+}
+
+.background {
+  height: 100vh;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: -1;
+}
+
+.background::before {
+  animation: backgroundMove 5s linear infinite reverse;
+  background: url('./img/background.svg');
+  background-size: contain;
+  background-repeat: repeat-x;
+  content: '';
+  display: block;
+  height: 100vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 400vh;
+}
+
+header {
+  padding-top: 3.875rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-shadow: var(--border-4px);
+  padding-top: 6px;
+  padding-left: 6px;
+  letter-spacing: 6px;
+}
+
+.title-wrapper {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3.125rem;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.mushroom {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url('./img/mushroom.svg');
+  background-size: contain;
+}
+
+header hr {
+  background-color: #fff;
+  border-radius: 0.5px;
+  display: block;
+  height: 3px;
+  outline: solid 3px var(--blue);
+  width: 100%;
+}
+
+.info,
+.ranking {
+  padding: 1rem 2rem 1.1875rem;
+}
+
+.ranking {
+  margin-top: 1.625rem;
+}
+
+.ranking[aria-hidden='true'] {
+  display: none;
+}
+
+.info,
+.ranking li {
+  display: flex;
+  font-size: 1.5rem;
+  gap: 0.75rem;
+  justify-content: space-between;
+  letter-spacing: 4px;
+}
+
+.ranking li {
+  padding-top: 6px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+}
+
+.ranking > li:not(:last-child) {
+  margin-bottom: 1.8125rem;
+}
+
+.ranking li[aria-hidden='true'] {
+  opacity: 0;
+}
+
+.specialColor h3,
+.specialColor span {
+  --border-color: white;
+  text-shadow: var(--border-3px);
+}
+
+.info h2 {
+  padding-top: 6px;
+  text-align: center;
+}
+
+.info span {
+  font-size: 1rem;
+}
+
+.position {
+  display: flex;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.dots {
+  overflow: hidden;
+  letter-spacing: 0;
+  user-select: none;
+}
+
+@keyframes backgroundMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (min-width: 200vh) {
+  .background::before {
+    width: 200vw;
+    height: 50vw;
+  }
+}
+
+@media (max-width: 864px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .title-wrapper {
+    gap: 1.5rem;
+  }
+  .mushroom {
+    width: 32px;
+    height: 32px;
+  }
+  .info,
+  .ranking li {
+    font-size: 1.2rem;
+  }
+  .info {
+    line-height: 1.5;
+    align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .title-wrapper {
+    gap: 0.75rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    text-shadow: var(--border-3px);
+  }
+
+  .mushroom {
+    width: 24px;
+    height: 24px;
+  }
+  .icons {
+    gap: 0.25rem;
+    /* display: none; */
+  }
+
+  .info,
+  .ranking {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+  .ranking {
+    padding-top: 0.125rem;
+  }
+
+  .info h2,
+  .ranking li {
+    font-size: 1rem;
+    padding-top: 4px;
+    letter-spacing: 1px;
+  }
+  .info h2,
+  .ranking li h3,
+  .ranking li span {
+    text-shadow: var(--border-2px);
+  }
+  .info span {
+    font-size: 0.75rem;
+  }
+
+  .position {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 430px) {
+  header {
+    padding-top: 2.875rem;
+  }
+
+  .icons {
+    display: none;
+  }
+
+  .title-wrapper {
+    margin-bottom: 2.25rem;
+  }
+
+  .info,
+  .ranking {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .ranking > li:not(:last-child) {
+    margin-bottom: 1.375rem;
+  }
+
+  .position {
+    line-height: 1.5;
+  }
+}

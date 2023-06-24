@@ -1,0 +1,68 @@
+{
+  "ranking": [
+    {
+      "name": "Mario",
+      "score": 180
+    },
+    {
+      "name": "Donkey Kong Jr",
+      "score": 180
+    },
+    {
+      "name": "Peach",
+      "score": 600
+    },
+    {
+      "name": "Yoshi",
+      "score": 200
+    },
+    {
+      "name": "Luigi",
+      "score": 270
+    },
+    {
+      "name": "Toad",
+      "score": 500
+    },
+    {
+      "name": "Bowser",
+      "score": 1000
+    },
+    {
+      "name": "Koopa Troopa",
+      "score": 0
+    },
+    {
+      "name": "Baby Mario",
+      "score": 180
+    },
+    {
+      "name": "Rosalina",
+      "score": 180
+    },
+    {
+      "name": "Shy Guy",
+      "score": 600
+    },
+    {
+      "name": "Lemmy",
+      "score": 200
+    },
+    {
+      "name": "Wario",
+      "score": 270
+    },
+    {
+      "name": "Lakitu",
+      "score": 500
+    },
+    {
+      "name": "Daisy",
+      "score": 1000
+    },
+    {
+      "name": "Diddy Kong",
+      "score": 0
+    }
+  ]
+}
