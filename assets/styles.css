@@ -97,44 +97,44 @@ body {
 }
 
 .background > svg {
+  animation: backgroundMove 5s linear infinite;
   height: 100vh;
   width: 400vh;
-  animation: backgroundMove 5s linear infinite;
+}
+
+svg > * {
+  transition: 3s fill;
 }
 
 [theme='dark'] .sky {
-  fill: #00012f;
+  fill: #00012f !important;
 }
 [theme='light'] .sky {
   fill: #ffef94;
 }
 [theme='dark'] .mountain {
-  fill: #58598f;
+  fill: #58598f !important;
 }
 [theme='light'] .mountain {
   fill: #94ef73;
 }
 [theme='dark'] .ground {
-  fill: #68699f;
+  fill: #68699f !important;
 }
 [theme='light'] .ground {
   fill: #adff84;
 }
 [theme='dark'] .cloud {
-  fill: #b8b9e7;
+  fill: #b8b9e7 !important;
 }
 [theme='light'] .cloud {
   fill: #ffffb5;
 }
 [theme='dark'] .ticTacToe {
-  fill: #b8b9e7;
+  fill: #f3f4f6 !important;
 }
 [theme='light'] .ticTacToe {
-  fill: #ffffb5;
-}
-
-svg > * {
-  transition: 3s;
+  fill: #f3f4f6;
 }
 
 header {
