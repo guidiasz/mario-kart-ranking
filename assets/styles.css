@@ -88,26 +88,53 @@ body {
 
 .background {
   height: 100vh;
-  left: 0;
-  overflow: hidden;
+  width: 100vw;
   position: absolute;
   top: 0;
-  width: 100vw;
+  left: 0;
   z-index: -1;
+  overflow: hidden;
 }
 
-.background::before {
-  animation: backgroundMove 5s linear infinite reverse;
-  background: url('./img/background.svg');
-  background-size: contain;
-  background-repeat: repeat-x;
-  content: '';
-  display: block;
+.background > svg {
   height: 100vh;
-  left: 0;
-  position: absolute;
-  top: 0;
   width: 400vh;
+  animation: backgroundMove 5s linear infinite;
+}
+
+[theme='dark'] .sky {
+  fill: #00012f;
+}
+[theme='light'] .sky {
+  fill: #ffef94;
+}
+[theme='dark'] .mountain {
+  fill: #58598f;
+}
+[theme='light'] .mountain {
+  fill: #94ef73;
+}
+[theme='dark'] .ground {
+  fill: #68699f;
+}
+[theme='light'] .ground {
+  fill: #adff84;
+}
+[theme='dark'] .cloud {
+  fill: #b8b9e7;
+}
+[theme='light'] .cloud {
+  fill: #ffffb5;
+}
+[theme='dark'] .ticTacToe {
+  fill: #b8b9e7;
+}
+[theme='light'] .ticTacToe {
+  fill: #ffffb5;
+}
+
+svg > * {
+  transition: 3s;
 }
 
 header {
@@ -123,26 +150,35 @@ h1 {
 }
 
 .title-wrapper {
-  display: flex;
-  align-items: end;
-  justify-content: center;
-  gap: 2rem;
   margin-bottom: 3.125rem;
+  position: relative;
 }
 
-.icons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
+.icon {
+  display: block;
+  width: 48px;
+  height: 48px;
+  background-size: contain;
 }
 
 .mushroom {
-  display: block;
-  width: 40px;
-  height: 40px;
   background-image: url('./img/mushroom.svg');
-  background-size: contain;
+}
+
+.darkModeBtn {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(8px, -50%);
+  padding: 8px;
+}
+
+.darkModeBtn[aria-pressed='false'] > .icon {
+  background-image: url('./img/moon.svg');
+}
+.darkModeBtn[aria-pressed='true'] > .icon {
+  background-image: url('./img/sun.svg');
 }
 
 header hr {
@@ -192,8 +228,13 @@ header hr {
 
 .specialColor h3,
 .specialColor span {
-  --border-color: white;
-  text-shadow: var(--border-3px);
+  transition: 3s;
+  transition-property: text-shadow;
+}
+
+.specialColor h3,
+.specialColor span {
+  --border-color: #fff;
 }
 
 .info h2 {
@@ -218,16 +259,13 @@ header hr {
 }
 
 @keyframes backgroundMove {
-  from {
-    transform: translateX(0);
-  }
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 @media (min-width: 200vh) {
-  .background::before {
+  .background > svg {
     width: 200vw;
     height: 50vw;
   }
@@ -240,10 +278,6 @@ header hr {
   .title-wrapper {
     gap: 1.5rem;
   }
-  .mushroom {
-    width: 32px;
-    height: 32px;
-  }
   .info,
   .ranking li {
     font-size: 1.2rem;
@@ -255,22 +289,14 @@ header hr {
 }
 
 @media (max-width: 640px) {
-  .title-wrapper {
-    gap: 0.75rem;
+  .icon {
+    width: 40px;
+    height: 40px;
   }
 
   h1 {
     font-size: 1.5rem;
     text-shadow: var(--border-3px);
-  }
-
-  .mushroom {
-    width: 24px;
-    height: 24px;
-  }
-  .icons {
-    gap: 0.25rem;
-    /* display: none; */
   }
 
   .info,
@@ -305,10 +331,7 @@ header hr {
 @media (max-width: 430px) {
   header {
     padding-top: 2.875rem;
-  }
-
-  .icons {
-    display: none;
+    text-align: left;
   }
 
   .title-wrapper {
