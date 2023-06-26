@@ -1,8 +1,24 @@
+function setTheme(newTheme) {
+  document.body.setAttribute('theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  $darkModeBtn.setAttribute('title', `Ativar modo ${newTheme === 'dark' ? 'claro' : 'escuro'}?`);
+}
+
+function loadInitialTheme() {
+  const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+  const initialTheme =
+    localStorage.getItem('theme') || (prefersDarkScheme.matches ? 'dark' : 'light');
+
+  setTheme(initialTheme);
+}
+
 const $darkModeBtn = document.querySelector('.darkModeBtn');
 
 $darkModeBtn.addEventListener('click', ({ currentTarget }) => {
-  const pressed = currentTarget.getAttribute('aria-pressed') === 'true';
-  document.body.setAttribute('theme', `${!pressed ? 'dark' : 'light'}`);
-  currentTarget.setAttribute('aria-pressed', !pressed);
-  currentTarget.setAttribute('title', `Ativar modo ${!pressed ? 'claro' : 'escuro'}?`);
+  const theme = document.body.getAttribute('theme');
+  const newTheme = theme === 'dark' ? 'light' : 'dark';
+  setTheme(newTheme);
+  currentTarget.blur();
 });
+
+loadInitialTheme();

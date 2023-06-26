@@ -66,8 +66,24 @@ span {
   text-shadow: var(--border-3px);
 }
 
+body[theme='dark'] {
+  --sky: #00012f;
+  --mountain: #58598f;
+  --ground: #68699f;
+  --cloud: #b8b9e7;
+  --ticTacToe: #f3f4f6;
+}
+
 body {
-  background-color: #68699f;
+  --sky: #ffef94;
+  --mountain: #94ef73;
+  --ground: #adff84;
+  --cloud: #ffffb5;
+  --ticTacToe: #f3f4f6;
+}
+
+body {
+  background-color: var(--ground);
   color: white;
   font-family: 'Press Start 2P', sans-serif;
   line-height: 1;
@@ -102,39 +118,9 @@ body {
   width: 400vh;
 }
 
-svg > * {
+svg > g,
+svg > path {
   transition: 3s fill;
-}
-
-[theme='dark'] .sky {
-  fill: #00012f !important;
-}
-[theme='light'] .sky {
-  fill: #ffef94;
-}
-[theme='dark'] .mountain {
-  fill: #58598f !important;
-}
-[theme='light'] .mountain {
-  fill: #94ef73;
-}
-[theme='dark'] .ground {
-  fill: #68699f !important;
-}
-[theme='light'] .ground {
-  fill: #adff84;
-}
-[theme='dark'] .cloud {
-  fill: #b8b9e7 !important;
-}
-[theme='light'] .cloud {
-  fill: #ffffb5;
-}
-[theme='dark'] .ticTacToe {
-  fill: #f3f4f6 !important;
-}
-[theme='light'] .ticTacToe {
-  fill: #f3f4f6;
 }
 
 header {
@@ -172,12 +158,23 @@ h1 {
   top: 50%;
   transform: translate(8px, -50%);
   padding: 8px;
+  transition: 0.3s transform;
 }
 
-.darkModeBtn[aria-pressed='false'] > .icon {
+.darkModeBtn:hover,
+.darkModeBtn:focus-visible {
+  transform: translate(8px, -50%) scale(1.1);
+}
+
+.darkModeBtn:focus-visible {
+  outline: var(--blue) 2px solid;
+  border-radius: 5px;
+}
+
+[theme='dark'] .darkModeBtn > .icon {
   background-image: url('./img/moon.svg');
 }
-.darkModeBtn[aria-pressed='true'] > .icon {
+.darkModeBtn > .icon {
   background-image: url('./img/sun.svg');
 }
 
