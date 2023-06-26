@@ -2,23 +2,40 @@
 <html lang="pt-br" dark="false">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mario Kart Ranking</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="/assets/reset.css">
   <link rel="stylesheet" href="/assets/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mario Kart Ranking</title>
+  <!--https://github.com/shubhamjain/svg-loader-->
+  <script type="text/javascript" src="/assets/js/svg-loader.min.js" async></script>
 </head>
 
-<body theme="">
+<body theme="" loading>
+  <div class="loader">
+    <div>
+      <svg data-src="/assets/img/mario.svg" data-cache="disabled" data-js="enabled" width=" 96" height="96" class="mario" oniconload="loadingAnimation(this)"></svg>
+      <p>Loading</p>
+    </div>
+  </div>
 
-  <div class="background">
+  <div class="error">
+    <div>
+      <svg data-src="/assets/img/banana.svg" width="96" height="96"></svg>
+      <p>Error<br>Try again later</p>
+    </div>
+  </div>
+
+  <div class="background" aria-hidden="true">
+    <svg data-src="/assets/img/background.svg" width="1024" height="256"></svg>
   </div>
 
   <header class="container">
@@ -39,7 +56,7 @@
 
   </main>
 </body>
-<script src="/assets/js/background.js"></script>
+<script src="/assets/js/loading.js"></script>
 <script src="/assets/js/week.js"></script>
 <script src="/assets/js/darkMode.js"></script>
 <script src="/assets/js/ranking.js"></script>

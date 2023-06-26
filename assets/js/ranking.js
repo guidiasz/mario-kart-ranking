@@ -10,10 +10,29 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function getRanking() {
-  const response = await fetch('https://mariokart.vercel.app/db.json');
-  let { ranking } = await response.json();
+async function fetchRanking() {
+  let response;
+  let json;
+  try {
+    response = await fetch('/db.json');
+    json = await response.json();
+    await sleep(1000);
+    if (!response.ok) throw new Error(json.message);
+  } catch (err) {
+    console.log(err);
+    json = null;
+    document.body.setAttribute('error', '');
+  } finally {
+    document.body.removeAttribute('loading');
+    return json;
+  }
+}
 
+async function getRanking() {
+  let ranking = (await fetchRanking())?.ranking;
+  if (!ranking) {
+    return;
+  }
   ranking = ranking.sort((a, b) => b.score - a.score);
   ranking[0].index = 1;
   ranking = ranking.map((item, index, array) => {
@@ -39,8 +58,7 @@ function createElement(elem, className, text = '') {
   return $elem;
 }
 
-async function sliceRanking() {
-  const ranking = await getRanking();
+function sliceRanking(ranking) {
   const pageSize = 8;
   const pages = [];
 
@@ -112,8 +130,9 @@ async function rankingAnimation($pages) {
 
 async function main() {
   const $main = document.querySelector('main');
-
-  const rankingPages = await sliceRanking();
+  const ranking = await getRanking();
+  if (!ranking) return;
+  const rankingPages = sliceRanking(ranking);
   const $pages = [];
   rankingPages.forEach((page) => {
     $pages.push(getRankingPageOl(page));

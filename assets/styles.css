@@ -1,3 +1,18 @@
+/*reset css*/
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+  all: unset;
+  display: revert;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+ol {
+  list-style: none;
+}
+/*--fim do reset--*/
+
 :root {
   --blue: #2563eb;
 }
@@ -66,6 +81,7 @@ span {
   text-shadow: var(--border-3px);
 }
 
+/* temas */
 body[theme='dark'] {
   --sky: #00012f;
   --mountain: #58598f;
@@ -81,6 +97,60 @@ body {
   --cloud: #ffffb5;
   --ticTacToe: #f3f4f6;
 }
+
+/*-- fim dos temas --*/
+
+/* estados de erro e loading */
+.error,
+.loader {
+  display: none;
+}
+.error > div,
+.loader > div {
+  transform: translateY(-50%);
+}
+
+body[loading] .loader,
+body[error] .error {
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 1000;
+  text-align: center;
+  text-transform: none;
+  letter-spacing: 3px;
+  line-height: 2;
+}
+
+.loader {
+  font-size: 1.25rem;
+}
+
+.loader p,
+.error p {
+  padding-left: 8.5px;
+}
+
+.mario g {
+  visibility: hidden;
+  transform-origin: center center;
+}
+
+body:is([loading], [error]) header {
+  display: none;
+}
+
+body:not([loading], [error]) .background > svg {
+  animation: backgroundMove 5s linear infinite;
+}
+
+/*-- fim dos estados de erro e loading --*/
 
 body {
   background-color: var(--ground);
@@ -113,13 +183,12 @@ body {
 }
 
 .background > svg {
-  animation: backgroundMove 5s linear infinite;
   height: 100vh;
   width: 400vh;
 }
 
-svg > g,
-svg > path {
+.background svg > g,
+.background svg > path {
   transition: 3s fill;
 }
 
@@ -147,10 +216,6 @@ h1 {
   background-size: contain;
 }
 
-.mushroom {
-  background-image: url('./img/mushroom.svg');
-}
-
 .darkModeBtn {
   cursor: pointer;
   position: absolute;
@@ -171,11 +236,14 @@ h1 {
   border-radius: 5px;
 }
 
-[theme='dark'] .darkModeBtn > .icon {
-  background-image: url('./img/moon.svg');
-}
 .darkModeBtn > .icon {
-  background-image: url('./img/sun.svg');
+  background-image: url('./img/buttonIcons.svg');
+  background-position: 0 0;
+  background-size: cover;
+}
+
+[theme='dark'] .darkModeBtn > .icon {
+  background-position: 100% 0;
 }
 
 header hr {
@@ -220,7 +288,7 @@ header hr {
 }
 
 .ranking li[aria-hidden='true'] {
-  opacity: 0;
+  visibility: hidden;
 }
 
 .specialColor h3,
