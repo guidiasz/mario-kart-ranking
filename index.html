@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2563eb">
   <title>Mario Kart Ranking</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,24 +16,29 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-  <!--https://github.com/shubhamjain/svg-loader-->
+  <!-- https://github.com/shubhamjain/svg-loader -->
   <script type="text/javascript" src="/assets/js/svg-loader.min.js" async></script>
 </head>
 
 <body theme="" loading>
   <div class="loader">
     <div>
-      <svg data-src="/assets/img/mario.svg" data-cache="disabled" data-js="enabled" width=" 96" height="96" class="mario" oniconload="loadingAnimation(this)"></svg>
-      <p>Loading</p>
+      <svg aria-hidden="true" data-src="/assets/img/mario.svg" data-cache="disabled" data-js="enabled" width=" 96" height="96" class="mario" oniconload="loadingAnimation(this)"></svg>
+      <p>Carregando</p>
     </div>
   </div>
 
   <div class="error">
     <div>
-      <svg data-src="/assets/img/banana.svg" width="96" height="96"></svg>
-      <p>Error<br>Try again later</p>
+      <svg aria-hidden="true" data-src="/assets/img/banana.svg" width="96" height="96"></svg>
+      <p>Erro<br>Tente mais tarde</p>
     </div>
   </div>
+  <div class="offline">
+    <svg aria-hidden="true" data-src="/assets/img/banana.svg" width="24" height="24"></svg>
+    <p>Offline</p>
+  </div>
+
 
   <div class="background" aria-hidden="true">
     <svg data-src="/assets/img/background.svg" width="1024" height="256"></svg>
@@ -46,8 +52,8 @@
     <hr>
     <div class="info">
       <h2>50<span>cc</span></h2>
-      <h2>Mushroom Cup</h2>
-      <h2 id="week">Week </h2>
+      <h2 id="title"></h2>
+      <h2 id="round">Week </h2>
     </div>
     <hr>
   </header>
@@ -55,10 +61,10 @@
 
 
   </main>
+  <script src="/assets/js/worker.js"></script>
+  <script src="/assets/js/loading.js"></script>
+  <script src="/assets/js/darkMode.js"></script>
+  <script src="/assets/js/ranking.js"></script>
 </body>
-<script src="/assets/js/loading.js"></script>
-<script src="/assets/js/week.js"></script>
-<script src="/assets/js/darkMode.js"></script>
-<script src="/assets/js/ranking.js"></script>
 
 </html>

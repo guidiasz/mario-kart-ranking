@@ -1,5 +1,6 @@
 {
   "title": "Mushroom Cup",
+  "round": "1",
   "ranking": [
     {
       "name": "Mario",
@@ -55,7 +56,8 @@
     },
     {
       "name": "Lakitu",
-      "score": 500
+      "score": 500,
+      "color": "#eab308"
     },
     {
       "name": "Daisy",

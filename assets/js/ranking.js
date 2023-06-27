@@ -10,29 +10,55 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function fetchRanking() {
-  let response;
-  let json;
+function createElement(elem, className, text = '') {
+  const $elem = document.createElement(elem);
+  className && $elem.classList.add(className);
+  $elem.textContent = text;
+  return $elem;
+}
+
+async function checkOnlineStatus() {
   try {
-    response = await fetch('/db.json');
-    json = await response.json();
-    await sleep(1000);
-    if (!response.ok) throw new Error(json.message);
+    const online = await fetch('/assets/img/pixel.png');
+    if (online.status >= 200 && online.status < 300) {
+      location.reload();
+    }
   } catch (err) {
-    console.log(err);
-    json = null;
-    document.body.setAttribute('error', '');
-  } finally {
-    document.body.removeAttribute('loading');
-    return json;
+    console.log('offline');
+    return false;
   }
 }
 
-async function getRanking() {
-  let ranking = (await fetchRanking())?.ranking;
-  if (!ranking) {
-    return;
+async function fetchRace() {
+  let response = null;
+  let json = null;
+  let error = null;
+  try {
+    response = await fetch('/db.json');
+    json = await response.json();
+    if (!response.ok) throw new Error(json.message);
+  } catch (err) {
+    json = null;
+    error = err;
+    if (!(await checkOnlineStatus())) {
+      document.body.setAttribute('offline', '');
+      setInterval(checkOnlineStatus, 30000);
+    }
+  } finally {
+    json && localStorage.setItem('race', JSON.stringify(json));
+    document.body.removeAttribute('loading');
   }
+}
+
+function setHeader(title, round) {
+  const $title = document.querySelector('#title');
+  const $round = document.querySelector('#round');
+
+  $title.textContent = title;
+  $round.textContent = 'Round ' + round;
+}
+
+function formatRanking(ranking) {
   ranking = ranking.sort((a, b) => b.score - a.score);
   ranking[0].index = 1;
   ranking = ranking.map((item, index, array) => {
@@ -49,13 +75,6 @@ async function getRanking() {
     return item;
   });
   return ranking;
-}
-
-function createElement(elem, className, text = '') {
-  const $elem = document.createElement(elem);
-  className && $elem.classList.add(className);
-  $elem.textContent = text;
-  return $elem;
 }
 
 function sliceRanking(ranking) {
@@ -128,18 +147,29 @@ async function rankingAnimation($pages) {
   }
 }
 
-async function main() {
-  const $main = document.querySelector('main');
-  const ranking = await getRanking();
-  if (!ranking) return;
+function showRanking(race) {
+  setHeader(race.title, race.round);
+  const ranking = race.ranking;
+  formatRanking(ranking);
   const rankingPages = sliceRanking(ranking);
+  const $main = document.querySelector('main');
   const $pages = [];
   rankingPages.forEach((page) => {
     $pages.push(getRankingPageOl(page));
   });
-
   $main.append(...$pages);
   rankingAnimation($pages);
+}
+
+async function main() {
+  await fetchRace();
+
+  const race = JSON.parse(localStorage.getItem('race'));
+  if (!race) {
+    document.body.setAttribute('error', '');
+    return;
+  }
+  showRanking(race);
 }
 
 main();
