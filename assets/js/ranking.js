@@ -36,6 +36,7 @@ async function fetchRace() {
   try {
     response = await fetch('/db.json');
     json = await response.json();
+    await sleep(1000);
     if (!response.ok) throw new Error(json.message);
   } catch (err) {
     json = null;
