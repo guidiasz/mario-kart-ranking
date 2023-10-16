@@ -8,7 +8,7 @@
 
 <!-- <p align="center">Veja o site: <a href="https://mariokart.vercel.app">mariokart.vercel.app</a></p> -->
 
-## Sobre
+## Índice
 
 - **[Acesse o Site ⤴](https://mariokart.vercel.app)**
 - **[Lighthouse](#lighthouse)**
@@ -16,6 +16,13 @@
 - **[PWA](#pwa)** o site funciona como um app e pode ser acessado mesmo offline
 - **[Dados dinâmicos](#dados-dinamicos)**
 - **[Copyright](#copyright)**
+
+## Sobre
+Quando eu trabalhava na empresa Júnior, criamos um sistema de pontuação em que o colaborador trocava pontos por recompensas. Fiquei encarregado de pensar em uma forma de apresentar o ranking à todos. 
+
+Sabia ninguém ia dar bola pro projeto se eu me limitasse a pregar uma cartolina na sede com a pontuação de cada um. Queria que as pessoas se empolgassem, então recriei o design do ranking do Mario Kart. O resultado foi bem aceito e impulsionou o engajamento dos colegas com o sistema de pontuação.
+
+Na época, eu não fazia ideia de como fazer animações com CSS, então tive que aprender tudo do zero. 
 
 ## Lighthouse
 
